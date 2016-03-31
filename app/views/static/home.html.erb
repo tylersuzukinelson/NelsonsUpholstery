@@ -2,3 +2,9 @@ Nelson's Upholstery<br />
 4640 62 St<br />
 Delta, BC  V4K 3L7<br />
 604-940-2223
+<hr>
+<% if user_signed_in? %>
+  <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
