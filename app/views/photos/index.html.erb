@@ -1,1 +1,16 @@
-ADMIN ONRY
+<% flash.each do |type, msg| %>
+  <div class="alert alert-<%= type %>">
+    <%= msg %>
+  </div>
+<% end %>
+
+<%= link_to "Add a new photo", new_photo_path %>
+
+<table>
+  <% @photos.each do |photo| %>
+    <tr>
+      <td><%= "<img src=\"#{photo.attachment.url}\">".html_safe if photo.attachment.url %></td>
+      <td><%= photo.description %></td>
+    </tr>
+  <% end %>
+</table>
